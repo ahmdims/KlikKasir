@@ -4,7 +4,7 @@
 
 <head>
 	<base href="" />
-	<title>@yield('title', 'KlikKasir')</title>
+	<title>@title</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="shortcut icon" href="{{ asset('assets/media/logos/favicon.ico') }}" />
@@ -52,6 +52,7 @@
 				<div class="app-main flex-column flex-row-fluid" id="kt_app_main">
 					<!--begin::Content wrapper-->
 					<div class="d-flex flex-column flex-column-fluid">
+						@include('layouts.partials._toolbar')
 						@yield('content')
 					</div>
 					<!--end::Content wrapper-->

@@ -2,7 +2,11 @@
 <div id="kt_app_footer" class="app-footer d-flex flex-column flex-md-row flex-center flex-md-stack py-3">
 	<!--begin::Copyright-->
 	<div class="text-dark order-2 order-md-1">
-		<span class="text-muted fw-semibold me-1">2025&copy;</span>
+		<span class="text-muted fw-semibold me-1">
+			<script>
+				document.write(new Date().getFullYear())
+			</script> &copy;
+		</span>
 		<a href="#" target="_blank" class="text-gray-800 text-hover-primary">ahmdims</a>
 	</div>
 	<!--end::Copyright-->

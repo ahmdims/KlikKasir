@@ -27,7 +27,8 @@
 						<!--begin:Menu item-->
 						<div class="menu-item">
 							<!--begin:Menu link-->
-							<a class="menu-link active" href="#">
+							<a class="menu-link {{ request()->routeIs('dashboard*') ? 'active' : '' }}"
+								href="{{ route('dashboard') }}">
 								<span class="menu-bullet">
 									<span class="bullet bullet-dot"></span>
 								</span>
@@ -40,6 +41,73 @@
 					<!--end:Menu sub-->
 				</div>
 				<!--end:Menu item-->
+
+				@can('user_management_menu')
+					<!--begin:Menu item-->
+					<div data-kt-menu-trigger="click" class="menu-item here show menu-accordion">
+						<!--begin:Menu link-->
+						<span class="menu-link">
+							<span class="menu-icon">
+								<i class="ki-outline ki-shield-tick fs-2"></i>
+							</span>
+							<span class="menu-title">User Management</span>
+							<span class="menu-arrow"></span>
+						</span>
+						<!--end:Menu link-->
+						<!--begin:Menu sub-->
+						<div class="menu-sub menu-sub-accordion">
+							@can('manage_roles')
+								<!--begin:Menu item-->
+								<div class="menu-item">
+									<!--begin:Menu link-->
+									<a class="menu-link {{ request()->routeIs('roles.*') ? 'active' : '' }}"
+										href="{{ route('roles.index') }}">
+										<span class="menu-bullet">
+											<span class="bullet bullet-dot"></span>
+										</span>
+										<span class="menu-title">Roles</span>
+									</a>
+									<!--end:Menu link-->
+								</div>
+								<!--end:Menu item-->
+							@endcan
+
+							@can('manage_users')
+								<!--begin:Menu item-->
+								<div class="menu-item">
+									<!--begin:Menu link-->
+									<a class="menu-link {{ request()->routeIs('users.*') ? 'active' : '' }}"
+										href="{{ route('users.index') }}">
+										<span class="menu-bullet">
+											<span class="bullet bullet-dot"></span>
+										</span>
+										<span class="menu-title">Users</span>
+									</a>
+									<!--end:Menu link-->
+								</div>
+								<!--end:Menu item-->
+							@endcan
+
+							@can('manage_permissions')
+								<!--begin:Menu item-->
+								<div class="menu-item">
+									<!--begin:Menu link-->
+									<a class="menu-link {{ request()->routeIs('permissions.*') ? 'active' : '' }}"
+										href="{{ route('permissions.index') }}">
+										<span class="menu-bullet">
+											<span class="bullet bullet-dot"></span>
+										</span>
+										<span class="menu-title">Permissions</span>
+									</a>
+									<!--end:Menu link-->
+								</div>
+								<!--end:Menu item-->
+							@endcan
+						</div>
+						<!--end:Menu sub-->
+					</div>
+					<!--end:Menu item-->
+				@endcan
 			</div>
 			<!--end::Sidebar menu-->
 		</div>
