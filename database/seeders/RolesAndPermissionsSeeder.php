@@ -18,8 +18,13 @@ class RolesAndPermissionsSeeder extends Seeder
         // Permissions
         Permission::create(['name' => 'user_management_menu']);
         Permission::create(['name' => 'manage_permissions']);
+
         Permission::create(['name' => 'manage_roles']);
         Permission::create(['name' => 'manage_users']);
+
+        Permission::create(['name' => 'manage_tenants']);
+        Permission::create(['name' => 'access_tenant_settings']);
+
         Permission::create(['name' => 'manage_stores']);
         Permission::create(['name' => 'view_reports']);
         Permission::create(['name' => 'manage_products']);
@@ -40,7 +45,8 @@ class RolesAndPermissionsSeeder extends Seeder
             'manage_stock',
             'manage_transactions',
             'manage_users',
-            'manage_roles'
+            'manage_roles',
+            'access_tenant_settings'
         ]);
 
         $admin = Role::create(['name' => 'admin']);

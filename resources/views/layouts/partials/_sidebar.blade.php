@@ -42,6 +42,35 @@
 				</div>
 				<!--end:Menu item-->
 
+                {{-- Tenant Settings for Owner --}}
+                @php
+                    $userTenant = Auth::user()->tenant;
+                @endphp
+                @can('access_tenant_settings')
+                @if ($userTenant)
+                    <div class="menu-item">
+                        <a class="menu-link {{ request()->routeIs('tenant.settings') ? 'active' : '' }}" href="{{ route('tenant.settings') }}">
+                            <span class="menu-icon">
+                                <i class="ki-outline ki-setting-3 fs-2"></i>
+                            </span>
+                            <span class="menu-title">Pengaturan Tenant</span>
+                        </a>
+                    </div>
+                @endif
+                @endcan
+
+                {{-- Tenant Management for Superadmin --}}
+                @can('manage_tenants')
+                    <div class="menu-item">
+                        <a class="menu-link {{ request()->routeIs('tenant.index') || request()->routeIs('tenant.create') ? 'active' : '' }}" href="{{ route('tenant.index') }}">
+                            <span class="menu-icon">
+                                <i class="ki-outline ki-abstract-3 fs-2"></i>
+                            </span>
+                            <span class="menu-title">Manajemen Tenant</span>
+                        </a>
+                    </div>
+                @endcan
+
 				@can('user_management_menu')
 					<!--begin:Menu item-->
 					<div data-kt-menu-trigger="click" class="menu-item here show menu-accordion">

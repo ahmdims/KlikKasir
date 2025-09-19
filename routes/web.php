@@ -4,6 +4,8 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\Tenant\TenantSettingsController;
+use App\Http\Controllers\Tenant\TenantController;
 use App\Models\Permission;
 use Illuminate\Support\Facades\Route;
 
@@ -32,7 +34,7 @@ Route::get('/debug-roles', function () {
     }
     $user = Auth::user();
     // Penting: kita perlu memuat ulang relasi roles untuk mendapatkan semua role, bukan hanya yang aktif dari middleware
-    $user->load('roles'); 
+    $user->load('roles');
 
     return response()->json([
         'user_id' => $user->id,
@@ -78,4 +80,14 @@ Route::middleware(['auth'])->group(function () {
     // Route::get('/users', function () {
     //     // Tampilan manajemen user
     // })->middleware(['can:manage_users'])->name('users.index');
+
+    Route::get('tenant/settings', [TenantSettingsController::class, 'create'])->name('tenant.settings');
+    Route::put('tenant/settings', [TenantSettingsController::class, 'update'])->name('tenant.settings.update');
+});
+
+Route::middleware(['auth', 'superadmin'])->group(function () {
+    Route::get('tenants', [TenantController::class, 'index'])->name('tenant.index');
+    Route::get('tenants/create', [TenantController::class, 'create'])->name('tenant.create');
+    Route::post('tenants', [TenantController::class, 'store'])->name('tenant.store');
+    Route::get('tenants/{tenant}/edit', [TenantController::class, 'edit'])->name('tenant.edit');
 });

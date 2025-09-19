@@ -7,6 +7,26 @@ Breadcrumbs::for('dashboard', function (BreadcrumbGenerator $trail) {
     $trail->push('Home', route('dashboard'));
 });
 
+Breadcrumbs::for('tenant.create', function (BreadcrumbGenerator $trail) {
+    $trail->parent('dashboard');
+    $trail->push('Create Tenant', route('tenant.create'));
+});
+
+Breadcrumbs::for('tenant.index', function (BreadcrumbGenerator $trail) {
+    $trail->parent('dashboard');
+    $trail->push('Tenants', route('tenant.index'));
+});
+
+Breadcrumbs::for('tenant.settings', function (BreadcrumbGenerator $trail) {
+    $trail->parent('tenant.index');
+    $trail->push('Tenant Settings', route('tenant.settings'));
+});
+
+Breadcrumbs::for('tenant.edit', function (BreadcrumbGenerator $trail, $tenant) {
+    $trail->parent('tenant.index');
+    $trail->push('Edit Tenant', route('tenant.edit', $tenant));
+});
+
 Breadcrumbs::for('users.index', function (BreadcrumbGenerator $trail) {
     $trail->parent('dashboard');
     $trail->push('Users', route('users.index'));
