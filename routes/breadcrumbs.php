@@ -14,7 +14,7 @@ Breadcrumbs::for('users.index', function (BreadcrumbGenerator $trail) {
 
 Breadcrumbs::for('users.edit', function (BreadcrumbGenerator $trail, $user) {
     $trail->parent('users.index');
-    $trail->push('User Edit', route('users.edit', $user));
+    $trail->push('Edit User', route('users.edit', $user));
 });
 
 Breadcrumbs::for('roles.index', function (BreadcrumbGenerator $trail) {
@@ -24,7 +24,7 @@ Breadcrumbs::for('roles.index', function (BreadcrumbGenerator $trail) {
 
 Breadcrumbs::for('roles.show', function (BreadcrumbGenerator $trail, $role) {
     $trail->parent('roles.index');
-    $trail->push('Role Show', route('roles.show', $role));
+    $trail->push('Show Role', route('roles.show', $role));
 });
 
 Breadcrumbs::for('permissions.index', function (BreadcrumbGenerator $trail) {

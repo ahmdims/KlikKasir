@@ -15,6 +15,10 @@ class LoginController extends Controller
         $this->authService = $authService;
     }
 
+
+
+
+
     public function showLoginForm()
     {
         return view('auth.login'); // Kita perlu buat view ini
@@ -28,6 +32,13 @@ class LoginController extends Controller
         ]);
 
         if ($this->authService->login($credentials)) {
+            $user = auth()->user();
+            // Ambil role pertama user dan simpan sebagai role aktif di session
+            $firstRole = $user->roles->first();
+            if ($firstRole) {
+                session(['active_role_id' => $firstRole->id]);
+            }
+
             // Ambil permissions setelah login berhasil
             $permissions = $this->authService->getUserPermissions();
             session(['user_permissions' => $permissions]);

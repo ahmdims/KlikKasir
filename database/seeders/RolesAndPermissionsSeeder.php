@@ -16,6 +16,7 @@ class RolesAndPermissionsSeeder extends Seeder
         app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
 
         // Permissions
+        Permission::create(['name' => 'user_management_menu']);
         Permission::create(['name' => 'manage_permissions']);
         Permission::create(['name' => 'manage_roles']);
         Permission::create(['name' => 'manage_users']);
@@ -33,6 +34,7 @@ class RolesAndPermissionsSeeder extends Seeder
 
         $owner = Role::create(['name' => 'owner']);
         $owner->givePermissionTo([
+            'user_management_menu',
             'view_reports',
             'manage_products',
             'manage_stock',

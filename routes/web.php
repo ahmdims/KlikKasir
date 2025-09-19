@@ -18,6 +18,35 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+use App\Http\Controllers\ActiveRoleController;
+
+use Illuminate\Support\Facades\Auth;
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('/debug-roles', function () {
+    if (!Auth::check()) {
+        return response()->json(['error' => 'User not logged in.']);
+    }
+    $user = Auth::user();
+    // Penting: kita perlu memuat ulang relasi roles untuk mendapatkan semua role, bukan hanya yang aktif dari middleware
+    $user->load('roles'); 
+
+    return response()->json([
+        'user_id' => $user->id,
+        'user_name' => $user->name,
+        'roles_count' => $user->roles->count(),
+        'roles' => $user->roles->pluck('name'),
+        'active_role_id_in_session' => session('active_role_id'),
+    ]);
+})->middleware('web');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/roles/switch/{role}', [ActiveRoleController::class, 'switch'])->name('roles.switch');
+});
+
 // Authentication Routes
 Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('login', [LoginController::class, 'login']);
