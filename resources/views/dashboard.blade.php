@@ -1,7 +1,5 @@
 @extends('layouts.app')
 
-@section('title', 'Dashboard')
-
 @section('content')
     <!--begin::Content-->
     <div id="kt_app_content" class="app-content flex-column-fluid">

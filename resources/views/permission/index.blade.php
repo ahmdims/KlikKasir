@@ -1,60 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    <!--begin::Toolbar-->
-    <div id="kt_app_toolbar" class="app-toolbar pt-6 pb-2">
-        <!--begin::Toolbar container-->
-        <div id="kt_app_toolbar_container" class="app-container container-fluid d-flex align-items-stretch">
-            <!--begin::Toolbar wrapper-->
-            <div class="app-toolbar-wrapper d-flex flex-stack flex-wrap gap-4 w-100">
-                <!--begin::Page title-->
-                <div class="page-title d-flex flex-column justify-content-center gap-1 me-3">
-                    <!--begin::Title-->
-                    <h1 class="page-heading d-flex flex-column justify-content-center text-dark fw-bold fs-3 m-0">
-                        Permissions List</h1>
-                    <!--end::Title-->
-                    <!--begin::Breadcrumb-->
-                    <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0">
-                        <!--begin::Item-->
-                        <li class="breadcrumb-item text-muted">
-                            <a href="../../demo39/dist/index.html" class="text-muted text-hover-primary">Home</a>
-                        </li>
-                        <!--end::Item-->
-                        <!--begin::Item-->
-                        <li class="breadcrumb-item">
-                            <span class="bullet bg-gray-400 w-5px h-2px"></span>
-                        </li>
-                        <!--end::Item-->
-                        <!--begin::Item-->
-                        <li class="breadcrumb-item text-muted">Apps</li>
-                        <!--end::Item-->
-                        <!--begin::Item-->
-                        <li class="breadcrumb-item">
-                            <span class="bullet bg-gray-400 w-5px h-2px"></span>
-                        </li>
-                        <!--end::Item-->
-                        <!--begin::Item-->
-                        <li class="breadcrumb-item text-muted">User Management</li>
-                        <!--end::Item-->
-                    </ul>
-                    <!--end::Breadcrumb-->
-                </div>
-                <!--end::Page title-->
-                <!--begin::Actions-->
-                <div class="d-flex align-items-center gap-2 gap-lg-3">
-                    <a href="#"
-                        class="btn btn-flex btn-outline btn-color-gray-700 btn-active-color-primary bg-body h-40px fs-7 fw-bold"
-                        data-bs-toggle="modal" data-bs-target="#kt_modal_view_users">Add Member</a>
-                    <a href="#" class="btn btn-flex btn-primary h-40px fs-7 fw-bold" data-bs-toggle="modal"
-                        data-bs-target="#kt_modal_create_campaign">New Campaign</a>
-                </div>
-                <!--end::Actions-->
-            </div>
-            <!--end::Toolbar wrapper-->
-        </div>
-        <!--end::Toolbar container-->
-    </div>
-    <!--end::Toolbar-->
     <!--begin::Content-->
     <div id="kt_app_content" class="app-content flex-column-fluid">
         <!--begin::Content container-->
@@ -98,192 +44,30 @@
                             </tr>
                         </thead>
                         <tbody class="fw-semibold text-gray-600">
-                            <tr>
-                                <td>User Management</td>
-                                <td>
-                                    <a href="../../demo39/dist/apps/user-management/roles/view.html"
-                                        class="badge badge-light-primary fs-7 m-1">Administrator</a>
-                                </td>
-                                <td>19 Aug 2023, 6:05 pm</td>
-                                <td class="text-end">
-                                    <button class="btn btn-icon btn-active-light-primary w-30px h-30px me-3"
-                                        data-bs-toggle="modal" data-bs-target="#kt_modal_update_permission">
-                                        <i class="ki-outline ki-setting-3 fs-3"></i>
-                                    </button>
-                                    <button class="btn btn-icon btn-active-light-primary w-30px h-30px"
-                                        data-kt-permissions-table-filter="delete_row">
-                                        <i class="ki-outline ki-trash fs-3"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Content Management</td>
-                                <td>
-                                    <a href="../../demo39/dist/apps/user-management/roles/view.html"
-                                        class="badge badge-light-primary fs-7 m-1">Administrator</a>
-                                    <a href="../../demo39/dist/apps/user-management/roles/view.html"
-                                        class="badge badge-light-danger fs-7 m-1">Developer</a>
-                                    <a href="../../demo39/dist/apps/user-management/roles/view.html"
-                                        class="badge badge-light-success fs-7 m-1">Analyst</a>
-                                    <a href="../../demo39/dist/apps/user-management/roles/view.html"
-                                        class="badge badge-light-info fs-7 m-1">Support</a>
-                                    <a href="../../demo39/dist/apps/user-management/roles/view.html"
-                                        class="badge badge-light-warning fs-7 m-1">Trial</a>
-                                </td>
-                                <td>05 May 2023, 2:40 pm</td>
-                                <td class="text-end">
-                                    <button class="btn btn-icon btn-active-light-primary w-30px h-30px me-3"
-                                        data-bs-toggle="modal" data-bs-target="#kt_modal_update_permission">
-                                        <i class="ki-outline ki-setting-3 fs-3"></i>
-                                    </button>
-                                    <button class="btn btn-icon btn-active-light-primary w-30px h-30px"
-                                        data-kt-permissions-table-filter="delete_row">
-                                        <i class="ki-outline ki-trash fs-3"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Financial Management</td>
-                                <td>
-                                    <a href="../../demo39/dist/apps/user-management/roles/view.html"
-                                        class="badge badge-light-primary fs-7 m-1">Administrator</a>
-                                    <a href="../../demo39/dist/apps/user-management/roles/view.html"
-                                        class="badge badge-light-success fs-7 m-1">Analyst</a>
-                                </td>
-                                <td>22 Sep 2023, 9:23 pm</td>
-                                <td class="text-end">
-                                    <button class="btn btn-icon btn-active-light-primary w-30px h-30px me-3"
-                                        data-bs-toggle="modal" data-bs-target="#kt_modal_update_permission">
-                                        <i class="ki-outline ki-setting-3 fs-3"></i>
-                                    </button>
-                                    <button class="btn btn-icon btn-active-light-primary w-30px h-30px"
-                                        data-kt-permissions-table-filter="delete_row">
-                                        <i class="ki-outline ki-trash fs-3"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Reporting</td>
-                                <td>
-                                    <a href="../../demo39/dist/apps/user-management/roles/view.html"
-                                        class="badge badge-light-primary fs-7 m-1">Administrator</a>
-                                    <a href="../../demo39/dist/apps/user-management/roles/view.html"
-                                        class="badge badge-light-success fs-7 m-1">Analyst</a>
-                                </td>
-                                <td>15 Apr 2023, 5:30 pm</td>
-                                <td class="text-end">
-                                    <button class="btn btn-icon btn-active-light-primary w-30px h-30px me-3"
-                                        data-bs-toggle="modal" data-bs-target="#kt_modal_update_permission">
-                                        <i class="ki-outline ki-setting-3 fs-3"></i>
-                                    </button>
-                                    <button class="btn btn-icon btn-active-light-primary w-30px h-30px"
-                                        data-kt-permissions-table-filter="delete_row">
-                                        <i class="ki-outline ki-trash fs-3"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Payroll</td>
-                                <td>
-                                    <a href="../../demo39/dist/apps/user-management/roles/view.html"
-                                        class="badge badge-light-primary fs-7 m-1">Administrator</a>
-                                    <a href="../../demo39/dist/apps/user-management/roles/view.html"
-                                        class="badge badge-light-success fs-7 m-1">Analyst</a>
-                                </td>
-                                <td>20 Dec 2023, 6:43 am</td>
-                                <td class="text-end">
-                                    <button class="btn btn-icon btn-active-light-primary w-30px h-30px me-3"
-                                        data-bs-toggle="modal" data-bs-target="#kt_modal_update_permission">
-                                        <i class="ki-outline ki-setting-3 fs-3"></i>
-                                    </button>
-                                    <button class="btn btn-icon btn-active-light-primary w-30px h-30px"
-                                        data-kt-permissions-table-filter="delete_row">
-                                        <i class="ki-outline ki-trash fs-3"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Disputes Management</td>
-                                <td>
-                                    <a href="../../demo39/dist/apps/user-management/roles/view.html"
-                                        class="badge badge-light-primary fs-7 m-1">Administrator</a>
-                                    <a href="../../demo39/dist/apps/user-management/roles/view.html"
-                                        class="badge badge-light-danger fs-7 m-1">Developer</a>
-                                    <a href="../../demo39/dist/apps/user-management/roles/view.html"
-                                        class="badge badge-light-info fs-7 m-1">Support</a>
-                                </td>
-                                <td>25 Jul 2023, 6:43 am</td>
-                                <td class="text-end">
-                                    <button class="btn btn-icon btn-active-light-primary w-30px h-30px me-3"
-                                        data-bs-toggle="modal" data-bs-target="#kt_modal_update_permission">
-                                        <i class="ki-outline ki-setting-3 fs-3"></i>
-                                    </button>
-                                    <button class="btn btn-icon btn-active-light-primary w-30px h-30px"
-                                        data-kt-permissions-table-filter="delete_row">
-                                        <i class="ki-outline ki-trash fs-3"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>API Controls</td>
-                                <td>
-                                    <a href="../../demo39/dist/apps/user-management/roles/view.html"
-                                        class="badge badge-light-primary fs-7 m-1">Administrator</a>
-                                    <a href="../../demo39/dist/apps/user-management/roles/view.html"
-                                        class="badge badge-light-danger fs-7 m-1">Developer</a>
-                                </td>
-                                <td>10 Mar 2023, 6:43 am</td>
-                                <td class="text-end">
-                                    <button class="btn btn-icon btn-active-light-primary w-30px h-30px me-3"
-                                        data-bs-toggle="modal" data-bs-target="#kt_modal_update_permission">
-                                        <i class="ki-outline ki-setting-3 fs-3"></i>
-                                    </button>
-                                    <button class="btn btn-icon btn-active-light-primary w-30px h-30px"
-                                        data-kt-permissions-table-filter="delete_row">
-                                        <i class="ki-outline ki-trash fs-3"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Database Management</td>
-                                <td>
-                                    <a href="../../demo39/dist/apps/user-management/roles/view.html"
-                                        class="badge badge-light-primary fs-7 m-1">Administrator</a>
-                                    <a href="../../demo39/dist/apps/user-management/roles/view.html"
-                                        class="badge badge-light-danger fs-7 m-1">Developer</a>
-                                </td>
-                                <td>15 Apr 2023, 8:43 pm</td>
-                                <td class="text-end">
-                                    <button class="btn btn-icon btn-active-light-primary w-30px h-30px me-3"
-                                        data-bs-toggle="modal" data-bs-target="#kt_modal_update_permission">
-                                        <i class="ki-outline ki-setting-3 fs-3"></i>
-                                    </button>
-                                    <button class="btn btn-icon btn-active-light-primary w-30px h-30px"
-                                        data-kt-permissions-table-filter="delete_row">
-                                        <i class="ki-outline ki-trash fs-3"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Repository Management</td>
-                                <td>
-                                    <a href="../../demo39/dist/apps/user-management/roles/view.html"
-                                        class="badge badge-light-primary fs-7 m-1">Administrator</a>
-                                    <a href="../../demo39/dist/apps/user-management/roles/view.html"
-                                        class="badge badge-light-danger fs-7 m-1">Developer</a>
-                                </td>
-                                <td>25 Oct 2023, 5:30 pm</td>
-                                <td class="text-end">
-                                    <button class="btn btn-icon btn-active-light-primary w-30px h-30px me-3"
-                                        data-bs-toggle="modal" data-bs-target="#kt_modal_update_permission">
-                                        <i class="ki-outline ki-setting-3 fs-3"></i>
-                                    </button>
-                                    <button class="btn btn-icon btn-active-light-primary w-30px h-30px"
-                                        data-kt-permissions-table-filter="delete_row">
-                                        <i class="ki-outline ki-trash fs-3"></i>
-                                    </button>
-                                </td>
-                            </tr>
+                            @foreach($permissions as $permission)
+                                <tr>
+                                    <td>{{ $permission->name }}</td>
+                                    <td>
+                                        @foreach($permission->roles as $role)
+                                            <a href="{{ route('roles.show', $role->id) }}"
+                                                class="badge badge-light-primary fs-7 m-1">
+                                                {{ ucfirst($role->name) }}
+                                            </a>
+                                        @endforeach
+                                    </td>
+                                    <td>{{ $permission->created_at->format('d M Y, h:i a') }}</td>
+                                    <td class="text-end">
+                                        <button class="btn btn-icon btn-active-light-primary w-30px h-30px me-3"
+                                            data-bs-toggle="modal" data-bs-target="#kt_modal_update_permission">
+                                            <i class="ki-outline ki-setting-3 fs-3"></i>
+                                        </button>
+                                        <button class="btn btn-icon btn-active-light-primary w-30px h-30px"
+                                            data-kt-permissions-table-filter="delete_row">
+                                            <i class="ki-outline ki-trash fs-3"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                     <!--end::Table-->
